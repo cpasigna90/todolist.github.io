@@ -28,6 +28,18 @@ listContainer.addEventListener("click", function(e){
 
 }, false);
 
+inputBox.addEventListener("keydown", function (e){
+  if (e.key === "Enter"){
+  let li= document.createElement("li");
+  li.innerHTML = inputBox.value;
+  listContainer.appendChild(li);
+  let span = document.createElement("span");
+  span.innerHTML = "\u00d7";
+  li.appendChild(span);
+  inputBox.value = '';
+}
+})
+
 function saveData(){
   localStorage.setItem('data', listContainer.innerHTML);
 }
